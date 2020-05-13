@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, consectetur fugit. Officiis adipisci, a totam fuga beatae praesentium odio? Veritatis dolores cumque quos illo ad, iure nostrum minima hic animi?
+    <button id='btn'>
+        CLICK / SEND
+    </button>
+    <div id='response'>
+        no response
+    </div>
+</body>
+<script src= './jquery-3.5.1.min.js'></script>
+<script>
+    $('#btn').click(function(event){
+        event.preventDefault();
+
+        $.ajax({
+            type :'POST',
+            url :'/user',
+            data :{data:'lorem 123'},
+            headers:{
+                origin:'asd'
+            },
+            success : function(response){
+                $('#response').html(response);
+            },
+            error: function(response) {
+                console.log('ошибка')
+            }
+        });
+    });
+</script>
+</html>
